@@ -41,15 +41,15 @@ module.exports = {
    */
   // 交互提示信息
   messages: {
-    type: '确保本次提交遵循: 前端代码规! \n选择你要提交的类型: ',
-    scope: '\n选择一个scope(可选)',
+    type: '确保本次提交遵循: 前端代码规! \n选择你要提交的类型: \n',
+    scope: '选择一个scope(可选)\n',
     // 选择 scope: custom 时会出下面的提示
-    customScope: '请输入自定义的 scope: ',
+    customScope: '请输入自定义的 scope: \n',
     subject: '填写简短精炼的变更描述: \n',
     body: '填写更加详细的变更描述(可选)。使用 "|" 换行: \n',
     breaking: '列举非兼容性重大的变更（可选）：\n',
     footer: '列举出所有变更的 ISSUES CLOSED(可选)。 例如: #31, #34: \n',
-    confirmCommit: '确认提交？'
+    confirmCommit: '确认提交?'
   },
   // 设置只有 type 选择了 feat 或 fix, 才询问 breaking message
   allowBreakingChanges: ['feat', 'fix'],

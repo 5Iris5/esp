@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "format": "prettier --write \"./**/*.{vue,ts,tsx,js,jsx,json,md,html,css,less,scss}\"",
     "lint": "eslint --fix \"./**/*.{js,ts,jsx,tsx,vue}\"",
-    "git": "git add . && git cz",
+    "git": "git add . && git cz && git push",
     "commit": "./node_modules/cz-customizable/standalone.js"
   },
   "dependencies": {
