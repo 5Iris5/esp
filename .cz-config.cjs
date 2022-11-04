@@ -1,62 +1,30 @@
 module.exports = {
-  // type 类型（定义之后，可通过上下键选择）
   types: [
-    { value: 'feat', name: 'feat: 新增功能' },
-    { value: 'fix', name: 'fix: 修复 bug' },
-    { value: 'docs', name: 'docs: 文档变更' },
-    { value: 'style', name: 'style: 代码格式(不影响功能，例如空格、分号等格式修正)' },
-    { value: 'refactor', name: 'refactor: 代码重构(不包括 bug 修复、功能新增)' },
-    { value: 'perf', name: 'perf: 性能优化' },
-    { value: 'chore', name: 'chore: 其他修改(比如构建流程, 依赖管理、版本好修正)' }
+    { value: 'feature', name: 'feature:  增加新功能' },
+    { value: 'bug', name: 'bug:      测试反馈BUG列表中的bug号' },
+    { value: 'fix', name: 'fix:      修复BUG' },
+    { value: 'ui', name: 'ui:       更新UI' },
+    { value: 'docs', name: 'docs:     文档变更' },
+    { value: 'style', name: 'style:    代码格式(不影响代码运行的变动)' },
+    { value: 'perf', name: 'perf:     性能优化' },
+    { value: 'refactor', name: 'refactor: 重构(既不是增加feature，也不是修复bug)' },
+    { value: 'release', name: 'release:  发布' },
+    { value: 'deploy', name: 'deploy:   部署' },
+    { value: 'test', name: 'test:     增加测试' },
+    { value: 'chore', name: 'chore:    构建过程或辅助工具的变动(更改配置文件)' },
+    { value: 'revert', name: 'revert:   回退' },
+    { value: 'build', name: 'build:    打包' }
   ],
-  // scope 类型（定义之后，可通过上下键选择）
-  scopes: [
-    ['components', '组件相关'],
-    ['hooks', 'hook 相关'],
-    ['utils', 'utils 相关'],
-    ['element-ui', '对 element-ui 的调整'],
-    ['styles', '样式相关'],
-    ['deps', '项目依赖'],
-    ['auth', '对 auth 修改'],
-    ['other', '其他修改'],
-    // 如果选择 custom，后面会让你再输入一个自定义的 scope。也可以不设置此项，把后面的 allowCustomScopes 设置为 true
-    ['custom', '以上都不是？我要自定义']
-  ].map(([value, description]) => {
-    return {
-      value,
-      name: `${value.padEnd(30)} (${description})`
-    }
-  }),
-  // 是否允许自定义填写 scope，在 scope 选择的时候，会有 empty 和 custom 可以选择。
-  // allowCustomScopes: true,
-  // allowTicketNumber: false,
-  // isTicketNumberRequired: false,
-  // ticketNumberPrefix: 'TICKET-',
-  // ticketNumberRegExp: '\\d{1,5}',
-  /**
-   * 针对每一个 type 去定义对应的 scopes，例如 fix
-   * scopeOverrides: {
-   *    fix: [{ name: 'merge' }, { name: 'style' }, { name: 'e2eTest' }, { name: 'unitTest' }]
-   * },
-   */
-  // 交互提示信息
+  // override the messages, defaults are as follows
   messages: {
-    type: '确保本次提交遵循: 前端代码规! \n选择你要提交的类型: \n',
-    scope: '选择一个scope(可选)\n',
-    // 选择 scope: custom 时会出下面的提示
-    customScope: '请输入自定义的 scope: \n',
-    subject: '填写简短精炼的变更描述: \n',
-    body: '填写更加详细的变更描述(可选)。使用 "|" 换行: \n',
-    breaking: '列举非兼容性重大的变更（可选）：\n',
-    footer: '列举出所有变更的 ISSUES CLOSED(可选)。 例如: #31, #34: \n',
-    confirmCommit: '确认提交?'
+    type: '确保本次提交遵循: 前端代码规! \n请选择你要提交的类型: \n',
+    customScope: '请输入您修改的范围(可选):',
+    subject: '请简要描述提交 message (必填):',
+    body: '请输入详细描述(可选，待优化去除，跳过即可):',
+    footer: '请输入要关闭的issue(待优化去除，跳过即可):',
+    confirmCommit: '确认使用以上信息提交？(y/n/e/h)'
   },
-  // 设置只有 type 选择了 feat 或 fix, 才询问 breaking message
-  allowBreakingChanges: ['feat', 'fix'],
-  // 跳过要询问的步骤
-  skipQuestions: ['scope', 'body', 'breaking', 'footer'],
-  subjectLimit: 100, // subject 限制长度
-  breaklineChar: '|' // 换行符，支持 body 和 footer
-  // footerPrefix : 'ISSUES CLOSED:'
-  // askForBreakingChangeFirst : true,
+  allowCustomScopes: true,
+  skipQuestions: ['body', 'footer'],
+  subjectLimit: 72
 }

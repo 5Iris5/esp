@@ -9,11 +9,7 @@
     "preview": "vite preview",
     "format": "prettier --write \"./**/*.{vue,ts,tsx,js,jsx,json,md,html,css,less,scss}\"",
     "lint": "eslint --fix \"./**/*.{js,ts,jsx,tsx,vue}\"",
-    "git": "git add . && git cz && git push",
-    "commit": "./node_modules/cz-customizable/standalone.js"
-  },
-  "dependencies": {
-    "vue": "^3.2.41"
+    "git": "git add . && git cz"
   },
   "config": {
     "commitizen": {
@@ -22,6 +18,9 @@
     "cz-customizable": {
       "config": "./.cz-config.cjs"
     }
+  },
+  "dependencies": {
+    "vue": "^3.2.41"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",
